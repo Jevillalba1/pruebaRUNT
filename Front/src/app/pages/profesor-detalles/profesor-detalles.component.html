@@ -1,0 +1,37 @@
+<ng-container *ngIf="loaded">    
+    <div class="card">
+        <div class="card-content" *ngIf="getAsignaturas().length > 0 else cardInfo">
+            <span class="card-title"><b>Profesor: </b>{{ getProfesor() }}</span>
+            <p>
+                <b>Colegio:</b> {{ getColegio() }}
+            </p>
+            <ul class="collapsible" #collapsible>
+                <li *ngFor="let asignatura of getAsignaturas()">
+                    <div class="collapsible-header">
+                        <i class="material-icons">book</i>
+                        <b>Curso: </b> {{ asignatura.curso.grado + asignatura.curso.salon }} - {{ asignatura.nombre }}
+                        <span class="badge" data-badge-caption="estudiantes">{{asignatura.estudiantes.length}}</span>
+                    </div>
+                    <div class="collapsible-body">
+                        <b>Listados de estudiantes: </b>
+                        <h6 *ngFor="let estudiante of asignatura.estudiantes">
+                            <span class="material-icons left">
+                                account_circle
+                            </span> {{ estudiante.nombre }}
+                        </h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <ng-template #cardInfo>
+            <div class="card-content">
+                <p class="red-text text-accent-4" style="margin-top: 0;">
+                    <span class="material-icons left"> warning </span> Lo sentimos no hemos encotrado registros para el profesor seleccionado.
+                </p>
+            </div>
+        </ng-template>
+        <div class="card-action">
+            <a routerLink="/profesores"><i class="material-icons left">arrow_back_ios</i>Regresar</a>
+        </div>
+    </div>
+</ng-container>

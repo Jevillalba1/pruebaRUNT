@@ -1,0 +1,10 @@
+<ul class="collection with-header">
+    <li class="collection-header">
+        <h4>Profesores</h4>
+    </li>
+    <li class="collection-item" *ngFor="let profesor of this.getProfesor()">
+        <div>{{ profesor.nombre }}
+            <a class="secondary-content" routerLink="/{{rutaProfesorDetalle(profesor)}}"><i class="material-icons">send</i></a>
+        </div>
+    </li>
+</ul>
