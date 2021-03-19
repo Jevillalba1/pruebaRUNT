@@ -48,7 +48,6 @@ Thumbs.db
 
 # Ignore for Back Pack
 
-HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
